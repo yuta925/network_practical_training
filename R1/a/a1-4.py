@@ -31,7 +31,7 @@ class MyServerHandler(BaseHTTPRequestHandler):
             id = int(id)
             name = events[id - 1].get("name")
             location = events[id - 1].get("location")
-            if (id == 2): 
+            if (id == 3): 
                 date = '<font color="red">{}</font>'.format( events[id - 1].get("date"))
             else: 
                 date = events[id - 1].get("date") 

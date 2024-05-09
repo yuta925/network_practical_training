@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% if message %}
+    <h1>エラー</h1>
+    <p>{{ message }}</p>
+    {% else %}
+    <ul>
+      <li>イベント名 : {{name}}</li>
+      <li>場所 : {{location}}</li>
+      <li>時間 : {{date|safe}}</li>
+    </ul>
+    {% endif %}
+  </body>
+</html>

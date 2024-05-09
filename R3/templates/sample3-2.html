@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{title}}</title>
+  </head>
+
+  <body>
+    <h1>{{title}}</h1>
+    {% if time|period ==0 %}
+    <p>いまは授業時間ではありません．</p>
+    {% else %}
+    <p>いまは{{time|period}}限です．</p>
+    <p>残り時間は{{countdown(time|period)}}秒です．</p>
+    {% endif %}
+  </body>
+</html>

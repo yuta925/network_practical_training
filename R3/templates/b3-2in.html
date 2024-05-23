@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>日付入力フォーム</title>
+  </head>
+  <body>
+    <h1>日付入力フォーム</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %}
+    <ul>
+      {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+    <form action="/" method="post">
+      <label for="month">月を入力してください</label><br />
+      <input
+        type="text"
+        id="month"
+        name="month"
+        placeholder="MM"
+        required
+      /><br />
+      <label for="day">日を入力してください</label><br />
+      <input type="text" id="day" name="day" placeholder="DD" required /><br />
+      <button type="submit">送信</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    .return {
+      display: block;
+      margin-top: 20px;
+      padding: 10px;
+      width: 200px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+      text-decoration: none;
+      color: #333;
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>イベント詳細</h1>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% else %}
+    <table border="1">
+      <tr>
+        <th>イベント名</th>
+        <th>場所</th>
+        <th>時期</th>
+      </tr>
+      <tr>
+        <td>{{name}}</td>
+        <td>{{location}}</td>
+        <td>{{date|safe}}</td>
+      </tr>
+    </table>
+    {% endif %}
+    <button class="return" onclick="location.href='/'">
+      イベント検索に戻る
+    </button>
+  </body>
+</html>

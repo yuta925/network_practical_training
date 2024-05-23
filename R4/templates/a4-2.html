@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+      }
+      .x {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .y {
+        margin-bottom: 20px;
+      }
+      .buttons button {
+        margin: 5px;
+        padding: 10px 20px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="x" id="x">0</div>
+      <div class="y">
+        <input type="number" id="inputValue" />
+      </div>
+      <div class="buttons">
+        <button onclick="performOperation('add')">+</button>
+        <button onclick="performOperation('subtract')">-</button>
+        <button onclick="performOperation('multiply')">*</button>
+        <button onclick="performOperation('divide')">/</button>
+      </div>
+    </div>
+    <script>
+      async function performOperation(operation) {
+        const x = parseInt(document.getElementById("x").innerText);
+        const y = parseInt(document.getElementById("inputValue").value);
+        const response = await fetch("/calculate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ x, y, operation }),
+        });
+        const result = await response.json();
+        document.getElementById("x").innerText = result.x;
+      }
+    </script>
+  </body>
+</html>

@@ -12,7 +12,6 @@ def route(path, method):
 route("/id1", "id1")
 route("/id2", "id2")
 route("/id3", "id3")
-# 2つのルートと処理を登録する．
 
 class MyServerHandler(BaseHTTPRequestHandler):
     def do_GET(self):

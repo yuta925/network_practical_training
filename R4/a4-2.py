@@ -1,17 +1,22 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template, session, redirect, url_for
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('a4-2.html')
+    if 'x' not in session:
+        session['x'] = 0
+    return render_template('a4-2.html', x=session['x'])
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
-    data = request.get_json()
-    x = data.get('x', 0)
-    y = data.get('y', 0)
-    operation = data.get('operation')
+    if 'x' not in session:
+        session['x'] = 0
+    
+    x = session['x']
+    y = int(request.form['inputValue'])
+    operation = request.form['operation']
 
     if operation == 'add':
         x += y
@@ -21,13 +26,12 @@ def calculate():
         x *= y
     elif operation == 'divide':
         if y != 0:
-            x = x // y  # Integer division
+            x //= y  
         else:
-            return jsonify({'error': 'Division by zero is not allowed'}), 400
+            return "0で割ることはできません"
 
-    return jsonify({'x': x})
+    session['x'] = x
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run(host='localhost')
-    
+    app.run(debug=True, port=5001)

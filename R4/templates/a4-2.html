@@ -1,57 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Calculator</title>
-    <style>
-      .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 50px;
-      }
-      .x {
-        font-size: 24px;
-        margin-bottom: 20px;
-      }
-      .y {
-        margin-bottom: 20px;
-      }
-      .buttons button {
-        margin: 5px;
-        padding: 10px 20px;
-        font-size: 18px;
-      }
-    </style>
+    <title>簡易電卓</title>
   </head>
+  <style>
+    .container {
+      margin: 0 auto;
+      width: 50%;
+      text-align: center;
+    }
+    .x {
+      font-size: 1.5em;
+    }
+  </style>
   <body>
     <div class="container">
-      <div class="x" id="x">0</div>
-      <div class="y">
-        <input type="number" id="inputValue" />
-      </div>
-      <div class="buttons">
-        <button onclick="performOperation('add')">+</button>
-        <button onclick="performOperation('subtract')">-</button>
-        <button onclick="performOperation('multiply')">*</button>
-        <button onclick="performOperation('divide')">/</button>
-      </div>
+      <h1>a4-2 簡易電卓</h1>
+      <div class="x">x = {{ x }}</div>
+      <form action="/calculate" method="post">
+        <label for="inputValue">y = </label>
+        <input
+          type="number"
+          id="inputValue"
+          name="inputValue"
+          required
+        /><br /><br />
+        <button type="submit" name="operation" value="add">+</button>
+        <button type="submit" name="operation" value="subtract">-</button>
+        <button type="submit" name="operation" value="multiply">*</button>
+        <button type="submit" name="operation" value="divide">/</button>
+      </form>
     </div>
-    <script>
-      async function performOperation(operation) {
-        const x = parseInt(document.getElementById("x").innerText);
-        const y = parseInt(document.getElementById("inputValue").value);
-        const response = await fetch("/calculate", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ x, y, operation }),
-        });
-        const result = await response.json();
-        document.getElementById("x").innerText = result.x;
-      }
-    </script>
   </body>
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>イベント検索結果</title>
+  </head>
+  <body>
+    <h1>イベント検索結果</h1>
+    {% if events %}
+    <table border="1">
+      <tr>
+        <th>イベント</th>
+      </tr>
+      {% for event in events %}
+      <tr>
+        <td>{{ event }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>該当するイベントが見つかりませんでした。</p>
+    {% endif %}
+  </body>
+</html>

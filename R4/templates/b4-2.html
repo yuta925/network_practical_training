@@ -1,1 +1,33 @@
-
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>イベントカウントダウン</title>
+  </head>
+  <body>
+    <h1>イベントカウントダウン</h1>
+    <form action="/" method="post">
+      <label for="event_name">イベント名:</label>
+      <input
+        type="text"
+        id="event_name"
+        name="event_name"
+        value="{{ event_name }}"
+        required
+      />
+      <label for="event_date">年月日</label>
+      <input
+        type="date"
+        id="event_date"
+        name="event_date"
+        value="{{ event_date }}"
+        required
+      />
+      <input type="submit" value="送信" />
+    </form>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+  </body>
+</html>

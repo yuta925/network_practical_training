@@ -3,15 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <title>{{title}}</title>
-    <style>
-      .new-date {
-        background-color: yellow;
-      }
-      .past-date {
-        background-color: lightgreen;
-      }
-    </style>
   </head>
+
   <body>
     <h1>{{title}}</h1>
     <table border="1">
@@ -20,11 +13,9 @@
         <th>{{item}}</th>
         {% endfor %}
       </tr>
-      {% for row in table %}
-      <tr
-        class="{% if row[0]|datetimeformat < current_date|datetimeformat %}past-date{% else %}new-date{% endif %}"
-      >
-        {% for item in row %}
+      {% for tuple in table %}
+      <tr>
+        {% for item in tuple %}
         <td>{{item}}</td>
         {% endfor %}
       </tr>

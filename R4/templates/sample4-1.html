@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>{{ title }}</h1>
+    <form action="{{ action }}" method="post">
+      <label for="number">検索する電話番号:</label>
+      <input
+        type="text"
+        name="number"
+        size="20"
+        id="number"
+        value="{{"
+        num
+        }}
+      />
+      <input type="submit" value="検索" />
+    </form>
+    <table border="1">
+      {% for tuple in data %}
+      <tr>
+        {% for item in tuple %}
+        <td>{{ item }}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

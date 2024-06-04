@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>a4-4 イベントをファイルに保存</h1>
+    <form action="/" method="post">
+      <label for="event_date">日程:</label>
+      <input
+        type="text"
+        id="event_date"
+        name="event_date"
+        placeholder="YYYY-MM-DD"
+      />
+      <label for="event_name">イベント名:</label>
+      <input type="text" id="event_name" name="event_name" />
+      <button type="submit">Submit</button>
+    </form>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+  </body>
+</html>

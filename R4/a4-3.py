@@ -11,7 +11,7 @@ def datetimeformat(value, format='%Y-%m-%d'):
 def address():
     with open("a4-3.txt", encoding="utf-8") as file:
         data = []
-        for text in file:
+        for text in file: 
             data.append(text.split(","))
         schema = ["日付", "イベント名"]
     current_date = datetime.now().strftime("%Y-%m-%d")

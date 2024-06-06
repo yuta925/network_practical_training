@@ -83,4 +83,4 @@ def index():
     return render_template('b3-2in.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, host="localhost")
+    app.run(debug=True, host="localhost", port=5001)

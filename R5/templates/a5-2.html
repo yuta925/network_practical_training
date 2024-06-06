@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .new-date {
+          background-color: yellow;
+        }
+        .past-date {
+          background-color: lightgreen;
+        }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>イベント</h1>
+      <table border="1">
+        <tr>
+          {% for item in schema %}
+          <th>{{item}}</th>
+          {% endfor %}
+        </tr>
+        {% for row in table %}
+        <tr class="{% if row[1]|datetimeformat < current_date|datetimeformat %}past-date{% else %}new-date{% endif %}">
+            <tr>
+                {% for item in row %}
+                <td>{{item}}</td>
+                {% endfor %}
+            </tr>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>

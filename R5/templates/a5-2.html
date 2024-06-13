@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .new-date {
-          background-color: yellow;
-        }
-        .past-date {
-          background-color: lightgreen;
-        }
+      .new-date {
+        background-color: yellow;
+      }
+      .past-date {
+        background-color: lightgreen;
+      }
     </style>
   </head>
   <body>
@@ -19,16 +19,16 @@
       <table border="1">
         <tr>
           {% for item in schema %}
-          <th>{{item}}</th>
+          <th>{{ item }}</th>
           {% endfor %}
         </tr>
         {% for row in table %}
-        <tr class="{% if row[1]|datetimeformat < current_date|datetimeformat %}past-date{% else %}new-date{% endif %}">
-            <tr>
-                {% for item in row %}
-                <td>{{item}}</td>
-                {% endfor %}
-            </tr>
+        <tr
+          class="{% if row[1] < current_date %}past-date{% else %}new-date{% endif %}"
+        >
+          {% for item in row %}
+          <td>{{ item }}</td>
+          {% endfor %}
         </tr>
         {% endfor %}
       </table>

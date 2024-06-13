@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>a5-3 データの追加</h1>
+    <form action="/add" method="post">
+      <label for="date">日付</label>
+      <input type="date" name="date" id="date" />
+      <label for="name">イベント名</label>
+      <input type="text" name="name" id="name" />
+      <label for="place">場所</label>
+      <input type="text" name="place" id="place" />
+      <input type="submit" value="追加" />
+    </form>
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %}
+    <a href="/events">イベントの確認 </a>
+  </body>
+</html>

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>イベント一覧</title>
   </head>
   <body>
-    <h1>a5-4 データの削除</h1>
+    <h1>イベント一覧</h1>
+    {% if table %}
     <table border="1">
       <tr>
         {% for item in schema %}
@@ -21,13 +22,9 @@
       </tr>
       {% endfor %}
     </table>
-    <form action="/delete" method="post">
-      <label for="id">ID</label>
-      <input type="text" name="id" id="id" />
-      <input type="submit" value="削除する" />
-    </form>
-    {% if message %}
-    <span>{{ message }}</span>
+    {% else %}
+    <p>イベントがありません。</p>
     {% endif %}
+    <a href="/">イベントを追加</a>
   </body>
 </html>

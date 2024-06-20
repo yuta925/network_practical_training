@@ -18,6 +18,6 @@ INSERT INTO events(id, date, name, place) VALUES(8,'2024-06-30','神戸vs鹿島'
 INSERT INTO events(id, date, name, place) VALUES(9,'2024-07-05','広島vs神戸','Eピース');
 INSERT INTO events(id, date, name, place) VALUES(10,'2024-07-13','札幌vs神戸','札幌ド');
 SELECT * FROM events;
-SELECT * FROM events WHERE name LIKE '%鹿島%';
+SELECT * FROM events WHERE name LIKE '鹿島%';
 SELECT * FROM events WHERE date > date('now');
 SELECT * FROM events WHERE id%2==0 and place='ノエスタ';

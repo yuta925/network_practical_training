@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>イベントリスト</title>
     <style>
       .new-date {
         background-color: yellow;
@@ -16,22 +16,82 @@
   <body>
     <div>
       <h1>イベント</h1>
-      <table border="1">
-        <tr>
-          {% for item in schema %}
-          <th>{{ item }}</th>
+      <div>
+        <h2>[1] 全件検索</h2>
+        <table border="1">
+          <tr>
+            {% for item in schema %}
+            <th>{{ item }}</th>
+            {% endfor %}
+          </tr>
+          {% for row in table1 %}
+          <tr
+            class="{% if row[1] < current_date %}past-date{% else %}new-date{% endif %}"
+          >
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+          </tr>
           {% endfor %}
-        </tr>
-        {% for row in table %}
-        <tr
-          class="{% if row[1] < current_date %}past-date{% else %}new-date{% endif %}"
-        >
-          {% for item in row %}
-          <td>{{ item }}</td>
+        </table>
+      </div>
+      <div>
+        <h2>[2] 鹿島が名前に含まれるイベント</h2>
+        <table border="1">
+          <tr>
+            {% for item in schema %}
+            <th>{{ item }}</th>
+            {% endfor %}
+          </tr>
+          {% for row in table2 %}
+          <tr
+            class="{% if row[1] < current_date %}past-date{% else %}new-date{% endif %}"
+          >
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+          </tr>
           {% endfor %}
-        </tr>
-        {% endfor %}
-      </table>
+        </table>
+      </div>
+      <div>
+        <h2>[3] これからのイベント</h2>
+        <table border="1">
+          <tr>
+            {% for item in schema %}
+            <th>{{ item }}</th>
+            {% endfor %}
+          </tr>
+          {% for row in table3 %}
+          <tr
+            class="{% if row[1] < current_date %}past-date{% else %}new-date{% endif %}"
+          >
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div>
+        <h2>[4] ノエスタで開催される偶数IDのイベント</h2>
+        <table border="1">
+          <tr>
+            {% for item in schema %}
+            <th>{{ item }}</th>
+            {% endfor %}
+          </tr>
+          {% for row in table4 %}
+          <tr
+            class="{% if row[1] < current_date %}past-date{% else %}new-date{% endif %}"
+          >
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
     </div>
   </body>
 </html>

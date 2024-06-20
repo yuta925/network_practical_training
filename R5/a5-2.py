@@ -23,17 +23,27 @@ def datetimeformat(value, format='%Y-%m-%d'):
 def database():
     db = get_db()
     cur = db.execute("SELECT * FROM events")
-    table = cur.fetchall()
+    table1 = cur.fetchall()
+    cur = db.execute("SELECT * FROM events WHERE name LIKE '鹿島%'")
+    table2 = cur.fetchall()
+    cur = db.execute("SELECT * FROM events WHERE date >= date('now')")
+    table3 = cur.fetchall()
+    cur = db.execute("SELECT * FROM events WHERE id%2=0 and place='ノエスタ'")
+    table4 = cur.fetchall()
     close_db()
     schema = ["ID", "日付", "イベント名", "場所"]
     current_date = datetime.now().strftime("%Y-%m-%d")
     return render_template(
         "a5-2.html",
         schema=schema,
-        table=table,
+        table1=table1,
+        table2=table2,
+        table3=table3,
+        table4=table4,
         current_date=current_date,
     )
 
+
 if __name__ == "__main__":
     app.debug = True
-    app.run(host="localhost", port=5001)
+    app.run(host="localhost")

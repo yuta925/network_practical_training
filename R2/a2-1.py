@@ -15,5 +15,5 @@ if __name__ == "__main__":
     # このプログラムが直接起動されたものであれば以下を実行する．
     app.debug = True
     # デバッグ機能をONにする．
-    app.run(host="localhost", port=5001)
+    app.run(host="localhost")
     # ホスト名をlocalhostにして，Webアプリケーションを起動する．

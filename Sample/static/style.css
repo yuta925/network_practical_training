@@ -1,0 +1,21 @@
+body {
+  margin: 20px;
+  background-color: aliceblue;
+}
+
+h1 {
+  color: blue;
+  font-size: 36pt;
+  margin: 0px;
+}
+
+p {
+  font-size: 14pt;
+}
+
+div.footer {
+  text-align: right;
+  border-bottom: 1px solid blue;
+  color: blue;
+  margin: 50px 0px;
+}

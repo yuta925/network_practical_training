@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>B2</title>
+  </head>
+  <body>
+    <h1>B2 三田キャンパスから近い順にソート</h1>
+    <table border="1">
+      <tr>
+        <th>イベント名</th>
+        <th>Date</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Distance (km)</th>
+      </tr>
+      {% for event in tables %}
+      <tr>
+        <td>{{ event[0] }}</td>
+        <td>{{ event[1] }}</td>
+        <td>{{ event[2] }}</td>
+        <td>{{ event[3] }}</td>
+        <td>{{ event[4] | round(2) }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

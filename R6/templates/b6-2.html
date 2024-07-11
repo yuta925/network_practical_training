@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>B6-2</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="my-4">B6-2</h1>
+      <div class="row">
+        {% for event in tables %}
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ event[0] }}</h5>
+              <p class="card-text">
+                <strong>Date:</strong> {{ event[1] }}<br />
+                <strong>City:</strong> {{ event[2] }}<br />
+                <strong>Country:</strong> {{ event[3] }}<br />
+                <strong>Distance:</strong> {{ event[4] | round(2) }} km
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
